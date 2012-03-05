@@ -4,7 +4,7 @@ require "rubyast/version"
 
 Gem::Specification.new do |s|
   s.name        = "rubyast"
-  s.version     = Rubyast::VERSION
+  s.version     = RubyAST::VERSION
   s.authors     = ["Victor Savkin"]
   s.email       = ["vic.savkin@gmail.com"]
   s.homepage    = "http://github.com/vsavkin/rubyast"
@@ -20,4 +20,8 @@ transforms AST, generates source code based on AST}
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
+
+  unless defined?(JRUBY_VERSION)
+    s.add_runtime_dependency "rjb"
+  end
 end
