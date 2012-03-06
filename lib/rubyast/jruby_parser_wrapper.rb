@@ -13,5 +13,12 @@ module RubyAST
     rescue ::SyntaxException => e
       raise SyntaxException, e.message
     end
+
+    def to_source ast, original_source
+      writer = J::StringWriter.new
+      visitor = J::ReWriteVisitor.new(writer, original_source)
+      ast.accept(visitor)
+      writer.toString
+    end
   end
 end

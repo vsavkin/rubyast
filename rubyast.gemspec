@@ -21,6 +21,7 @@ transforms AST, generates source code based on AST}
 
   s.add_development_dependency "rspec"
   s.add_development_dependency "rake"
+  s.add_development_dependency "pry"
 
   unless defined?(JRUBY_VERSION)
     s.add_runtime_dependency "rjb"

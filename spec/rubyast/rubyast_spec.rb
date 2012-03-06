@@ -34,5 +34,25 @@ module RubyAST
         lambda { RubyAST.parse(filename, "{x: 1}", :ruby_version => "RUBY1_8") }.should raise_error(SyntaxException)
       end
     end
+
+    context "#to_source" do
+      let(:original_source) do
+        %q{x = '1' + "2"}
+      end
+
+      let(:ast) do
+        RubyAST.parse("filename", original_source)
+      end
+
+      it "should generate source from AST" do
+        source = RubyAST.to_source(ast, original_source)
+        source.should == original_source
+      end
+
+      it "will ignore quote types when original source is not passed" do
+        source = RubyAST.to_source(ast)
+        source.should == 'x = "1" + "2"'
+      end
+    end
   end
 end

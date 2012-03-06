@@ -8,4 +8,8 @@ module RubyAST
     ruby_version = config.fetch(:ruby_version, "RUBY1_9")
     JRubyParserWrapper.parse file_name, source, line_number, ruby_version
   end
+
+  def self.to_source ast, original_source = ""
+    JRubyParserWrapper.to_source ast, original_source
+  end
 end
