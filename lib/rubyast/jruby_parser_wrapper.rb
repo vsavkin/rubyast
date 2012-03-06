@@ -6,7 +6,7 @@ module RubyAST
       config = J::ParserConfiguration.new(line_number, J::CompatVersion.getVersionFromString(ruby_version))
       reader = J::StringReader.new(source)
       J::Parser.new.parse(file_name, reader, config)
-    rescue J::SyntaxException => e
+    rescue J::SyntaxException, ::SyntaxException => e
       raise SyntaxException, e.message
     end
   end
