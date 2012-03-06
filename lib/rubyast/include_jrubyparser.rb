@@ -13,7 +13,7 @@ module RubyAST
       java_import org.jrubyparser.rewriter.ReWriteVisitor
       java_import org.jrubyparser.CompatVersion
 
-      java_import org.jrubyparser.lexer.SyntaxException
+      ::SyntaxException = org.jrubyparser.lexer.SyntaxException
     else
       require 'rjb'
       Rjb::load(jar_path, [])
@@ -24,8 +24,6 @@ module RubyAST
       Parser = Rjb::import('org.jrubyparser.Parser')
       ReWriteVisitor = Rjb::import('org.jrubyparser.rewriter.ReWriteVisitor')
       CompatVersion = Rjb::import('org.jrubyparser.CompatVersion')
-
-      SyntaxException = Rjb::import('org.jrubyparser.lexer.SyntaxException')
     end
   end
 end
