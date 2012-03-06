@@ -20,6 +20,7 @@ transforms AST, generates source code based on AST}
   s.require_paths = ["lib"]
 
   s.add_development_dependency "rspec"
+  s.add_development_dependency "rake"
 
   unless defined?(JRUBY_VERSION)
     s.add_runtime_dependency "rjb"
