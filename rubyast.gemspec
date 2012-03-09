@@ -8,9 +8,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Victor Savkin"]
   s.email       = ["vic.savkin@gmail.com"]
   s.homepage    = "http://github.com/vsavkin/rubyast"
-  s.summary     = %q{Allows AST Transformations for Ruby.}
-  s.description = %q{Allows AST Transformations for Ruby: parsers source code,
-transforms AST, generates source code based on AST}
+  s.summary     = %q{RubyAST parsers source code, transforms AST, and generates source code from AST}
+  s.description = %q{RubyAST parsers source code, transforms AST, and generates source code from AST}
 
   s.rubyforge_project = "rubyast"
 
