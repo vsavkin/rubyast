@@ -1,6 +1,6 @@
 # RubyAST
 
-RubyAST is a small library on top of jrubyparser. Though it uses jrubyparser the library works with ALL VERSIONS OF RUBY. 
+RubyAST is a small library on top of jrubyparser. The library works with ALL VERSIONS OF RUBY. YOU DON'T NEED TO USE JRUBY (but why not, it's awesome!).
 
 ## #parse
 
@@ -34,6 +34,15 @@ If you want to keep quotes and heredocs, pass the original source:
 	new_source = RubyAST.to_source(ast, original_source)
 
 
-## Additional Information
+## AST Nodes
 
-Check out [jruby-parser](https://github.com/jruby/jruby-parser) for additoinal information about different types of nodes.
+    ast = RubyAST.parse("(string)", "x = 1")
+    new_line_node = ast.body_node
+
+    assignment = new_line_node.next_node
+    fixnum_node = assignment.value_node
+
+    assignment.name.should == "x"
+    fixnum_node.value.should == 1
+
+Check out [jruby-parser](https://github.com/jruby/jruby-parser) for additoinal information about different types of nodes. 
